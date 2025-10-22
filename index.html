@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rocket Global Spa - Serenity & Luxury</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary': '#8B7355', // A warmer, more luxurious brown
+            'secondary': '#F9F5F0', // A soft, elegant off-white
+            'accent': '#C9A989', // A gentle tan/gold accent
+            'text-primary': '#3D3D3D', // Dark charcoal for readability
+            'text-secondary': '#7E7E7E', // Softer gray for secondary text
+          },
+          fontFamily: {
+            'serif': ['"Playfair Display"', 'serif'],
+            'sans': ['"Montserrat"', 'sans-serif'],
+          }
+        }
+      }
+    }
+    </script>
+    <style>
+      :root {
+        --color-primary: #8B7355;
+        --color-secondary: #F9F5F0;
+        --color-accent: #C9A989;
+        --color-text-primary: #3D3D3D;
+        --color-text-secondary: #7E7E7E;
+      }
+      body {
+        font-family: 'Montserrat', sans-serif;
+        color: var(--color-text-primary);
+        background-color: var(--color-secondary);
+      }
+      h1, h2, h3, h4, .font-serif {
+        font-family: 'Playfair Display', serif;
+      }
+      .slider-item {
+        transition: opacity 1s ease-in-out;
+      }
+      .logo-slider {
+        display: inline-block;
+        animation: 30s slide infinite linear;
+      }
+      @keyframes slide {
+        from { transform: translateX(0); }
+        to { transform: translateX(-100%); }
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.4"
+  }
+}
+</script>
+</head>
+<body class="bg-secondary">
+    <div id="root"></div>
+</body>
+</html>
