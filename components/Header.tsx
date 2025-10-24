@@ -1,5 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import { useCart } from '../hooks/useCart';
 
 // SVG Icons as Components for clarity
 const BurgerIcon = () => (
@@ -8,6 +10,12 @@ const BurgerIcon = () => (
 const CloseIcon = () => (
   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
 );
+const CartIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+    </svg>
+);
+
 const SocialIcons = () => (
     <div className="flex items-center space-x-4">
         {/* Placeholder SVGs for social media */}
@@ -19,21 +27,21 @@ const SocialIcons = () => (
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { itemCount } = useCart();
   
   const mainNavLinks = [
     { to: '/', name: 'Trang chủ' },
-    { to: '#', name: 'Rocket Global Spa Luxury/mini' },
     { to: '/services', name: 'Dịch Vụ' },
-    { to: '#', name: 'Lữ hành' },
-    { to: '#', name: 'Thẻ quà tặng' },
+    { to: '/products', name: 'Sản phẩm' },
     { to: '/about', name: 'Về Rocket Global Spa' },
-    { to: '#', name: 'Sản phẩm' },
+    { to: '/promotions', name: 'Ưu đãi' },
+    { to: '/contact', name: 'Liên Hệ' },
   ];
   
   const subNavLinks = [
       { to: '#', name: 'Tin tức' },
-      { to: '/promotions', name: 'Ưu đãi' },
-      { to: '#', name: 'Cơ sở' },
+      { to: '/specialists', name: 'Chuyên viên' },
+      { to: '/account/profile', name: 'Tài khoản' },
   ]
 
   const navLinkClasses = "px-4 py-2 text-sm font-medium text-text-primary hover:text-primary transition-colors";
@@ -68,6 +76,14 @@ const Header: React.FC = () => {
                     {mainNavLinks.map(link => <NavLink key={link.name} to={link.to} className={navLinkClasses}>{link.name}</NavLink>)}
                 </div>
                 <div className="flex items-center space-x-4">
+                  <Link to="/cart" className="relative text-text-primary hover:text-primary p-2">
+                    <CartIcon />
+                    {itemCount > 0 && (
+                        <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
+                            {itemCount}
+                        </span>
+                    )}
+                  </Link>
                   <NavLink
                     to="/booking"
                     className="bg-primary text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-opacity-90 transition-colors"
@@ -88,7 +104,14 @@ const Header: React.FC = () => {
             <Link to="/" className="text-2xl font-serif font-bold text-primary">
                 Rocket Global Spa
             </Link>
-            <div className="w-6"></div> {/* Spacer */}
+             <Link to="/cart" className="relative text-text-primary hover:text-primary p-2">
+                <CartIcon />
+                {itemCount > 0 && (
+                    <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
+                        {itemCount}
+                    </span>
+                )}
+              </Link>
          </div>
       </header>
 
@@ -109,6 +132,13 @@ const Header: React.FC = () => {
               <div className="pt-4 mt-4 border-t">
                  {subNavLinks.map(link => <NavLink key={link.name} to={link.to} className={mobileNavLinkClasses} onClick={() => setMobileMenuOpen(false)}>{link.name}</NavLink>)}
               </div>
+               <NavLink
+                to="/booking"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-6 w-full text-center bg-primary text-white px-5 py-3 rounded-full text-base font-semibold hover:bg-opacity-90 transition-colors"
+              >
+                ĐẶT LỊCH
+              </NavLink>
             </nav>
         </div>
       </div>

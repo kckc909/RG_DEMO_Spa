@@ -52,3 +52,17 @@ export interface User {
   name: string;
   email: string;
 }
+
+export interface Product {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  imageUrl: string;
+  brand: string;
+}
+
+export interface CartItem extends Product {
+  quantity: number;
+}

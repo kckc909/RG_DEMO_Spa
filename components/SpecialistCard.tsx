@@ -20,7 +20,7 @@ const SpecialistCard: React.FC<SpecialistCardProps> = ({ specialist }) => {
       <p className="text-text-secondary text-sm mb-4">{specialist.bio}</p>
       <div className="flex flex-wrap justify-center gap-2 mb-4">
         {specialist.specialties.map(spec => (
-          <span key={spec} className="bg-green-100 text-primary text-xs font-semibold px-2.5 py-1 rounded-full">
+          <span key={spec} className="bg-secondary text-primary text-xs font-semibold px-2.5 py-1 rounded-full">
             {spec}
           </span>
         ))}
@@ -28,9 +28,9 @@ const SpecialistCard: React.FC<SpecialistCardProps> = ({ specialist }) => {
       <Link 
           to="/booking"
           state={{ specialistId: specialist.id }}
-          className="w-full block bg-accent text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors"
+          className="w-full block bg-accent text-white px-4 py-2 rounded-md hover:bg-primary transition-colors"
       >
-        Book with {specialist.name.split(' ')[0]}
+        Đặt lịch với {specialist.name.split(' ')[0]}
       </Link>
     </div>
   );

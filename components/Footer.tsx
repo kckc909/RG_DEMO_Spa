@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -26,7 +27,7 @@ const Footer: React.FC = () => {
             
             {/* Column 1: About & Info */}
             <div>
-              <h3 className="text-2xl font-serif font-bold mb-4 text-primary">NHÀ SPA</h3>
+              <h3 className="text-2xl font-serif font-bold mb-4 text-primary">Rocket Global Spa</h3>
               <p className="text-gray-300 text-sm leading-relaxed">Nơi tái tạo năng lượng, tìm về an yên và nuông chiều bản thân bằng những liệu pháp trị liệu độc đáo.</p>
             </div>
 
@@ -34,9 +35,9 @@ const Footer: React.FC = () => {
             <div>
               <h4 className="font-semibold text-lg mb-4">Khám Phá</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link to="/about" className="text-gray-300 hover:text-primary transition-colors">Về Nhà Spa</Link></li>
+                <li><Link to="/about" className="text-gray-300 hover:text-primary transition-colors">Về Rocket Global Spa</Link></li>
                 <li><Link to="/services" className="text-gray-300 hover:text-primary transition-colors">Tất Cả Dịch Vụ</Link></li>
-                <li><Link to="#" className="text-gray-300 hover:text-primary transition-colors">Tin Tức & Sự Kiện</Link></li>
+                <li><Link to="/products" className="text-gray-300 hover:text-primary transition-colors">Sản Phẩm</Link></li>
                 <li><Link to="/promotions" className="text-gray-300 hover:text-primary transition-colors">Ưu Đãi Đặc Biệt</Link></li>
               </ul>
             </div>
@@ -46,14 +47,14 @@ const Footer: React.FC = () => {
               <h4 className="font-semibold text-lg mb-4">Liên Hệ</h4>
               <ul className="space-y-3 text-sm text-gray-300">
                 <li className="flex items-start"><span className="mr-2 mt-1">&#10140;</span><span>123 Wellness Lane, Tranquil City</span></li>
-                <li className="flex items-start"><span className="mr-2 mt-1">&#9993;</span><a href="mailto:contact@nhaspa.com" className="hover:text-primary">contact@nhaspa.com</a></li>
+                <li className="flex items-start"><span className="mr-2 mt-1">&#9993;</span><a href="mailto:contact@rocketglobalspa.com" className="hover:text-primary">contact@rocketglobalspa.com</a></li>
                 <li className="flex items-start"><span className="mr-2 mt-1">&#9742;</span><a href="tel:19001234" className="hover:text-primary">Hotline: 1900 1234</a></li>
               </ul>
             </div>
 
           </div>
           <div className="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400 text-sm">
-            <p>&copy; {new Date().getFullYear()} NHÀ SPA. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Rocket Global Spa. All rights reserved.</p>
           </div>
         </div>
       </footer>

@@ -1,12 +1,14 @@
 
 import React from 'react';
 import { MOCK_HISTORY } from '../../constants';
+import type { Booking } from '../../types';
 
 const HistoryPage: React.FC = () => {
   const upcomingBookings = MOCK_HISTORY.filter(b => b.status === 'Confirmed');
   const pastBookings = MOCK_HISTORY.filter(b => b.status !== 'Confirmed');
 
-  const BookingCard = ({ booking }) => (
+  // Fix: Add type annotation for the 'booking' prop.
+  const BookingCard = ({ booking }: { booking: Booking }) => (
     <div className="border p-4 rounded-lg mb-4">
       <div className="flex justify-between items-start">
         <div>
